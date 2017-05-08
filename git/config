@@ -1,0 +1,9 @@
+[user]
+	email = peter.johennecken@googlemail.com
+	name = Peter Johennecken
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[alias]
+	d = difftool
