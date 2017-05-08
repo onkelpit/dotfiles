@@ -1,0 +1,10 @@
+[Unit]
+Description=pacman update checker for i3
+
+[Timer]
+OnBootSec=2m
+OnUnitActiveSec=10m
+Unit=checkupdates.service
+
+[Install]
+WantedBy=timers.target

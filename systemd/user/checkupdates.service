@@ -1,0 +1,6 @@
+[Unit]
+Description=pacman update checker for i3
+
+[Service]
+type=simple
+ExecStart=/home/pit/.i3/checkupdates.sh

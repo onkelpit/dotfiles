@@ -1,0 +1,10 @@
+[Unit]
+Description=desktop wallpaper slideshow for i3
+
+[Timer]
+OnBootSec=2m
+OnUnitActiveSec=10m
+Unit=slideshow.service
+
+[Install]
+WantedBy=timers.target
