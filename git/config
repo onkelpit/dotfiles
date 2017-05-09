@@ -1,0 +1,13 @@
+[user]
+	name = Johennecken, Peter
+	email = P.Johennecken@deos-ag.com
+[alias]
+	co = checkout
+	st = status
+	ci = commit
+	br = branch
+	d = difftool
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = no
