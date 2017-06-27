@@ -1,0 +1,8 @@
+[colors]
+background=rgba(0,0,0,0.25)
+
+[options]
+font=inconsolata 10
+scrollback_lines=10000
+clickable_url=true
+dynamic_title=true
