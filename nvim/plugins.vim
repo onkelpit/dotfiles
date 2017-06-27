@@ -29,4 +29,6 @@ Plug 'mbbill/undotree'
 Plug 'lervag/vimtex'
 " easymotion TODO
 Plug 'easymotion/vim-easymotion'
+" vim-airline
+Plug 'bling/vim-airline'
 call plug#end()
