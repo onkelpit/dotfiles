@@ -31,4 +31,10 @@ Plug 'lervag/vimtex'
 Plug 'easymotion/vim-easymotion'
 " vim-airline
 Plug 'bling/vim-airline'
+" vim-commentary
+Plug 'tpope/vim-commentary'
+" nvim split-term
+Plug 'vimlab/split-term.vim'
+" powerline-fonts
+Plug 'lokaltog/powerline-fonts'
 call plug#end()
