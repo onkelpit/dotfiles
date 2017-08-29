@@ -45,6 +45,9 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec termite
 
+# lock screen after 15 minutes
+exec_always --no-startup-id xautolock -detectsleep -time 15 -locker 'i3lock -p win -i /home/pit/Bilder/winme.png'
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -175,3 +178,7 @@ bindsym Mod1+x move scratchpad
 bindsym Mod1+y scratchpad show
 
 bindsym $mod+p exec --no-startup-id i3lock -p win -i /home/pit/Bilder/winme.png
+
+bindsym XF86Calculator exec --no-startup-id speedcrunch
+
+for_window [class="SpeedCrunch"] floating enable
