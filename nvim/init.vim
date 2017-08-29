@@ -1,5 +1,9 @@
 source ~/.config/nvim/plugins.vim
 
+if has("gui_running")
+    set guifont Hack:h8
+endif
+
 " relative numbers with absolute number on current line
 set nu
 set rnu

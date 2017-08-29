@@ -12,7 +12,7 @@ Plug 'tpope/vim-fugitive'
 " vim surround plugin
 Plug 'tpope/vim-surround'
 " ctrl-p
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 " vim themes
 Plug 'altercation/vim-colors-solarized'
 " show git status (add,delete,change) per line
@@ -21,8 +21,8 @@ Plug 'airblade/vim-gitgutter'
 " Plug 'honza/vim-snippets'
 " snipMate
 Plug 'msanders/snipmate.vim'
-" git undo tree
-Plug 'sjl/gundo.vim'
+" git undo tree for neovim
+Plug 'simnalamburt/vim-mundo'
 " undo tree
 Plug 'mbbill/undotree'
 " vim latex plugin
@@ -37,4 +37,8 @@ Plug 'tpope/vim-commentary'
 Plug 'vimlab/split-term.vim'
 " powerline-fonts
 Plug 'lokaltog/powerline-fonts'
+" ranger.vim
+Plug 'francoiscabrol/ranger.vim'
+" vim-tshark
+Plug 'bps/vim-tshark'
 call plug#end()
