@@ -41,4 +41,8 @@ Plug 'lokaltog/powerline-fonts'
 Plug 'francoiscabrol/ranger.vim'
 " vim-tshark
 Plug 'bps/vim-tshark'
+" WindowSwap.vim
+Plug 'wesQ3/vim-windowswap'
+" Conque-GDB
+Plug 'vim-scripts/Conque-GDB'
 call plug#end()

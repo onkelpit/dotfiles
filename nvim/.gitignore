@@ -1,3 +1,6 @@
 undo
 plugged
 .netrwhist
+spell/*
+eclim/*
+plugin/eclim.vim

@@ -193,6 +193,9 @@ nnoremap <leader>P "+P
 vnoremap <leader>p "+p
 vnoremap <leader>P "+P
 
+" map double ESC to nohl
+nnoremap <silent> <Esc><Esc> :nohl<CR>
+
 " air-line
 let g:airline_powerline_fonts = 1
 
