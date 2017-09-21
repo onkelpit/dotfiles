@@ -45,6 +45,12 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec termite
 
+# start a floating terminal
+bindsym $mod+Shift+Return exec termite -t "float_please"
+
+# start scratchpad terminal
+exec --no-startup-id termite -t "scratch_please"
+
 # lock screen after 15 minutes
 exec_always --no-startup-id xautolock -detectsleep -time 15 -locker 'i3lock -p win -i /home/pit/Bilder/winme.png'
 
@@ -182,3 +188,10 @@ bindsym $mod+p exec --no-startup-id i3lock -p win -i /home/pit/Bilder/winme.png
 bindsym XF86Calculator exec --no-startup-id speedcrunch
 
 for_window [class="SpeedCrunch"] floating enable
+
+for_window [instance="termite" title="float_please"] floating enable
+
+for_window [instance="termite" title="scratch_please"] floating enable, move scratchpad, scratchpad show;
+for_window [instance="termite" title="scratch_please"] resize grow left 300, resize grow right 300, resize grow down 150, resize grow up 100, move scratchpad;
+bindsym Menu  [instance="termite" title="scratch_please"] scratchpad show
+bindsym Print [instance="termite" title="scratch_please"] scratchpad show
