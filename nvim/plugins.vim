@@ -45,4 +45,12 @@ Plug 'bps/vim-tshark'
 Plug 'wesQ3/vim-windowswap'
 " Conque-GDB
 Plug 'vim-scripts/Conque-GDB'
+" vim-misc
+Plug 'xolox/vim-misc'
+" vim-notes
+Plug 'xolox/vim-notes'
+" vim-startify
+Plug 'mhinz/vim-startify'
+" terryma/vim-multiple-cursors
+Plug 'terryma/vim-multiple-cursors'
 call plug#end()

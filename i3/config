@@ -27,6 +27,9 @@ font pango:monospace 8
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
 
+# urxvt Daemon
+exec --no-startup-id urxvtd
+
 # dunst notification Daemon
 exec --no-startup-id dunst
 
@@ -39,11 +42,18 @@ exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agen
 # exec comp for transparency
 exec --no-startup-id xcompmgr
 
+# SL*CK
+exec --no-startup-id slack
+
+# jabber
+exec --no-startup-id pidgin
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec termite
+# bindsym $mod+Return exec termite
+bindsym $mod+Return exec urxvtc
 
 # start a floating terminal
 bindsym $mod+Shift+Return exec termite -t "float_please"
@@ -51,8 +61,8 @@ bindsym $mod+Shift+Return exec termite -t "float_please"
 # start scratchpad terminal
 exec --no-startup-id termite -t "scratch_please"
 
-# lock screen after 15 minutes
-exec_always --no-startup-id xautolock -detectsleep -time 15 -locker 'i3lock -p win -i /home/pit/Bilder/winme.png'
+# lock screen after 10 minutes
+exec_always --no-startup-id xautolock -detectsleep -time 10 -locker 'i3lock -p win -i /home/pit/Bilder/winme.png'
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -114,29 +124,46 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+
+# symbols for workspaces
+# Chromium
+set $ws1 "workspace 1 "
+# Terminals
+set $ws2 "workspace 2 "
+# Firefox
+set $ws3 "workspace 3 "
+set $ws4 "workspace 4"
+set $ws5 "workspace 5"
+set $ws6 "workspace 6"
+set $ws7 "workspace 7"
+set $ws8 "workspace 8"
+# Slack
+set $ws9 "workspace 9 "
+set $ws10 "workspace 10"
+
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+1 $ws1
+bindsym $mod+2 $ws2
+bindsym $mod+3 $ws3
+bindsym $mod+4 $ws4
+bindsym $mod+5 $ws5
+bindsym $mod+6 $ws6
+bindsym $mod+7 $ws7
+bindsym $mod+8 $ws8
+bindsym $mod+9 $ws9
+bindsym $mod+0 $ws10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1 move container to $ws1
+bindsym $mod+Shift+2 move container to $ws2
+bindsym $mod+Shift+3 move container to $ws3
+bindsym $mod+Shift+4 move container to $ws4
+bindsym $mod+Shift+5 move container to $ws5
+bindsym $mod+Shift+6 move container to $ws6
+bindsym $mod+Shift+7 move container to $ws7
+bindsym $mod+Shift+8 move container to $ws8
+bindsym $mod+Shift+9 move container to $ws9
+bindsym $mod+Shift+0 move container to $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -175,6 +202,14 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
+        tray_output primary
+        position top
+}
+bar {
+        #status_command i3status
+        status_command /home/pit/.config/conky/i3status.sh
+        tray_output primary
+        position bottom
 }
 
 bindcode Mod1+23 workspace next
@@ -187,7 +222,12 @@ bindsym $mod+p exec --no-startup-id i3lock -p win -i /home/pit/Bilder/winme.png
 
 bindsym XF86Calculator exec --no-startup-id speedcrunch
 
+bindsym $mod+Tab exec setxkbmap us
+bindsym $mod+Shift+Tab exec setxkbmap de
+
 for_window [class="SpeedCrunch"] floating enable
+
+for_window [class="QtPass"] floating enable
 
 for_window [instance="termite" title="float_please"] floating enable
 
@@ -195,3 +235,10 @@ for_window [instance="termite" title="scratch_please"] floating enable, move scr
 for_window [instance="termite" title="scratch_please"] resize grow left 300, resize grow right 300, resize grow down 150, resize grow up 100, move scratchpad;
 bindsym Menu  [instance="termite" title="scratch_please"] scratchpad show
 bindsym Print [instance="termite" title="scratch_please"] scratchpad show
+
+for_window [class="Chromium"] move container to $ws1
+for_window [class="Firefox"] move container to $ws3
+for_window [class="Slack"] move container to $ws9
+
+gaps inner 5
+gaps outer 10

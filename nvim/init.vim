@@ -196,6 +196,10 @@ vnoremap <leader>P "+P
 " map double ESC to nohl
 nnoremap <silent> <Esc><Esc> :nohl<CR>
 
+set foldmethod=indent
+set foldnestmax=10
+set foldlevelstart=10
+
 " air-line
 let g:airline_powerline_fonts = 1
 
