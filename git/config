@@ -3,7 +3,7 @@
 	email = P.Johennecken@deos-ag.com
 [alias]
 	co = checkout
-	st = status
+	st = status -s
     ci = commit -vs
 	br = branch
 	d = difftool
