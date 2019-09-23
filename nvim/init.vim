@@ -23,6 +23,24 @@ let g:mapleader = ","
 " Fast saving
 nmap <leader>w :w!<cr>
 
+" Fast close
+nmap <leader>d :bd<cr>
+
+" Fast list
+nmap <leader>l :ls<cr>
+
+" Fast next ycm error
+nmap <leader>m :lnext<cr>
+
+" Fast prev ycm error
+nmap <leader>n :lprevious<cr>
+
+" Fast spell check toggle
+nmap <leader>r :set spell!<cr>
+
+" replace in visual selection with CTRL-R
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left><Paste>
+
 syntax enable
 set background=dark
 colorscheme desert
@@ -142,7 +160,7 @@ nnoremap <F6> :GundoToggle<CR>
 map <leader>e :e ~/.config/nvim/init.vim<cr>
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<c-y>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
@@ -229,3 +247,49 @@ let g:airline_symbols.whitespace = 'Ξ'
 " let g:airline_symbols.branch = ''
 " let g:airline_symbols.readonly = ''
 " let g:airline_symbols.linenr = ''
+
+let g:vimtex_compiler_progname = 'nvr'
+
+"let g:DoxygenToolkit_briefTag_pre="@Synopsis  "
+let g:DoxygenToolkit_paramTag_pre="@Param "
+let g:DoxygenToolkit_returnTag="@Returns   "
+"let g:DoxygenToolkit_blockHeader="--------------------------------------------------------------------------"
+"let g:DoxygenToolkit_blockFooter="----------------------------------------------------------------------------"
+let g:DoxygenToolkit_authorName="Peter Johennecken"
+"let g:DoxygenToolkit_licenseTag="My own license"
+
+let g:ycm_global_ycm_extra_conf = "~/.config/nvim/.ycm_extra_conf.py"
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_always_populate_location_list = 1
+
+command Todo noautocmd vimgrep /TODO\|FIXME|XXX/j src/* include/* src_cgi/* | cw
+
+set nocompatible
+
+set path+=**
+set wildmenu
+
+let g:netrw_banner=0
+let g:netrw_browse_split=4
+let g:netrw_altv=1
+let g:netrw_listsytle=3
+let g:netrw_list_hide=netrw_gitignore#Hide()
+let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
+
+nnoremap ,main :-1read $HOME/.config/nvim/snippets/main1.c<CR>/{<CR>a<CR>
+nnoremap ,if :-1read $HOME/.config/nvim/snippets/if.c<CR>f(a
+nnoremap ,else :-1read $HOME/.config/nvim/snippets/else.c<CR>f(a
+nnoremap ,elif :-1read $HOME/.config/nvim/snippets/elif.c<CR>f(a
+
+" vnoremap : y:<C-r>"<C-b>
+" F11 and F12 to go to previous/next entry
+nnoremap <F11>          :silent! cc<CR>:silent! cp <CR>
+nnoremap <F12>          :silent! cc<CR>:silent! cn <CR>
+
+" Shifted: go to previous/next file in entries list
+nnoremap <S-F11>        :silent! cc<CR>:silent! cpf<CR>
+nnoremap <S-F12>        :silent! cc<CR>:silent! cnf<CR>
+
+" Ctrl-F11/F12 : jump through quickfix lists history
+nnoremap <C-F11>        :silent! col <CR>
+nnoremap <C-F12>        :silent! cnew<CR>
