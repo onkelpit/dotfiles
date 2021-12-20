@@ -4,9 +4,7 @@ general {
 }
 
 order += "disk /"
-order += "ethernet eth0"
-order += "ethernet eth1"
-order += "battery 0"
+order += "ethernet enp3s0"
 order += "load"
 order += "tztime local"
 

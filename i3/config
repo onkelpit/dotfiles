@@ -58,9 +58,12 @@ bindsym $mod+Return exec urxvtc
 # start scratchpad terminal
 # exec --no-startup-id termite -t "scratch_please"
 
+# snippets
+bindsym $mod+i exec cat ~/.config/snippets/snippets | rofi -dmenu | tr -d '\n' |xdotool type --delay ${xdotool_delay} --clearmodifiers --file -
+
 # lock screen after 15 minutes
 #exec_always --no-startup-id xautolock -detectsleep -time 15 -locker 'i3lock -p win -i /home/pit/Bilder/winme.png'
-exec_always --no-startup-id xautolock -secure -detectsleep -time 15 -locker 'i3lock-fancy -p'
+exec_always --no-startup-id xautolock -secure -detectsleep -time 10 -locker 'i3lock-fancy-dualmonitor -p'
 # TODO
 # reload gpg-agent here to forget passwords
 # https://superuser.com/questions/586969/force-gpg-agent-to-forget-password#887987
@@ -202,12 +205,12 @@ bar {
         tray_output primary
         position top
 }
-bar {
-        #status_command i3status
-        status_command /home/pit/.config/conky/i3status.sh
-        tray_output primary
-        position bottom
-}
+#bar {
+#        #status_command i3status
+#        status_command /home/pit/.config/conky/i3status.sh
+#        tray_output primary
+#        position bottom
+#}
 
 bindcode Mod1+23 workspace next
 bindcode Mod1+Shift+23 workspace prev
@@ -216,7 +219,7 @@ bindsym Mod1+x move scratchpad
 bindsym Mod1+y scratchpad show
 
 #bindsym $mod+p exec --no-startup-id i3lock -p win -i /home/pit/Bilder/winme.png
-bindsym $mod+p exec --no-startup-id i3lock-fancy -p
+bindsym $mod+p exec --no-startup-id i3lock-fancy-dualmonitor -p
 
 # disable CAPS lock (used in vim)
 exec_always --no-startup-id "sleep 1; setxkbmap -option caps:none"

@@ -11,7 +11,6 @@ set rnu
 filetype plugin on
 filetype indent on
 
-
 " auto read when change from outside
 set autoread
 
@@ -66,6 +65,11 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_c_compiler = 'gcc'
+let g:syntastic_c_compiler_options = ' -std=gnu99'
+let g:syntastic_c_default_include_dirs = '-I/home/pit/git/linux-imx/include '
+let g:syntastic_cpp_compiler = 'g++'
+let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 
 if has('mouse')
     set mouse=a
@@ -168,6 +172,9 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 " Disable Arrow keys in Escape mode
 
+" use new snipmate parser
+let g:snipMate = { 'snippet_version' : 1 }
+
 map <up> <nop>
 map <down> <nop>
 map <left> <nop>
@@ -178,10 +185,6 @@ imap <up> <nop>
 imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
-
-let g:syntastic_c_compiler = 'gcc'
-let g:syntastic_cpp_compiler = 'g++'
-let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 
 " Wann geladen wird              # Maske   # Aktivieren      # Zu verwendende Sprache
 au BufNewFile,BufRead,BufEnter   *.wiki    setlocal spell    spelllang=de_de,en_us
@@ -258,6 +261,7 @@ let g:DoxygenToolkit_returnTag="@Returns   "
 let g:DoxygenToolkit_authorName="Peter Johennecken"
 "let g:DoxygenToolkit_licenseTag="My own license"
 
+let g:ycm_python_binary_path = '/usr/bin/python'
 let g:ycm_global_ycm_extra_conf = "~/.config/nvim/.ycm_extra_conf.py"
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_always_populate_location_list = 1
@@ -293,3 +297,7 @@ nnoremap <S-F12>        :silent! cc<CR>:silent! cnf<CR>
 " Ctrl-F11/F12 : jump through quickfix lists history
 nnoremap <C-F11>        :silent! col <CR>
 nnoremap <C-F12>        :silent! cnew<CR>
+
+autocmd Filetype c set makeprg=make
+
+set tags+=./tags,tags

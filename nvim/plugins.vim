@@ -56,10 +56,10 @@ Plug 'terryma/vim-multiple-cursors'
 " rafi/vim-unite-issue
 Plug 'rafi/vim-unite-issue'
 " autozimu/LanguageClient-neovim
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+" Plug 'autozimu/LanguageClient-neovim', {
+"     \ 'branch': 'next',
+"     \ 'do': 'bash install.sh',
+"     \ }
 " 'vim-scripts/DoxygenToolkit.vim'
 Plug 'vim-scripts/DoxygenToolkit.vim'
 " 'brooth/far.vim'
@@ -82,4 +82,10 @@ Plug 'severin-lemaignan/vim-minimap'
 Plug 'dhruvasagar/vim-table-mode'
 " 'vivien/vim-linux-coding-style'
 " Plug 'vivien/vim-linux-coding-style'
+" 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar'
+" Use release branch
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" a.vim (alternate between .c and .h)
+Plug 'vim-scripts/a.vim'
 call plug#end()
